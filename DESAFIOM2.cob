@@ -97,8 +97,6 @@
             DISPLAY "**************************************************"
             PERFORM P999-FIM
             .
-
        P999-FIM.
             STOP RUN.
-
        END PROGRAM DESAFIOM2.
