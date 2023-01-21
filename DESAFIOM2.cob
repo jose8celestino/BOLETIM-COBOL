@@ -31,7 +31,7 @@
        PROCEDURE DIVISION.
        P100-INICIAR.
             INITIALIZE WS-INFO.
-            PERFORM P500-CALCULO UNTIL WS-SIGNAL <>'Y'.
+            PERFORM P500-CALCULO UNTIL WS-SIGNAL <> 'Y'.
             PERFORM P999-FIM.
             EXIT PROGRAM.
        P500-CALCULO.
@@ -39,6 +39,7 @@
             ACCEPT WS-ALUNO.
             DISPLAY "INSIRA A MATERIA."
             ACCEPT WS-MATERIA.
+
             DISPLAY "INSIRA A NOTA DO PRIMEIRO QUADRIMESTRE."
             ACCEPT WS-NOTA-1.
             DISPLAY "INSIRA A NOTA DO SEGUNDO QUADRIMESTRE."
@@ -63,17 +64,13 @@
                (WS-NOTA-3 > 10) OR 
                (WS-NOTA-4 > 10)                 PERFORM P150-ERRO.
 
-            DISPLAY WS-NOTA-1
-                        DISPLAY WS-NOTA-2
-            DISPLAY WS-NOTA-3
-            DISPLAY WS-NOTA-4
+            DISPLAY "NOTA 1: " WS-NOTA-1
+            DISPLAY "NOTA 2: " WS-NOTA-2
+            DISPLAY "NOTA 3: " WS-NOTA-3
+            DISPLAY "NOTA 4: " WS-NOTA-4
 
-
-            ADD WS-NOTA-1 TO WS-MEDIA.
-            ADD WS-NOTA-2 TO WS-MEDIA.
-            ADD WS-NOTA-3 TO WS-MEDIA.
-            ADD WS-NOTA-4 TO WS-MEDIA.
-            COMPUTE WS-MEDIA = WS-MEDIA /4
+            COMPUTE WS-MEDIA = (WS-NOTA-1 + WS-NOTA-2 + 
+                                WS-NOTA-3 + WS-NOTA-4) / 4
            
             IF WS-MEDIA >= 7
                SET WS-CONFIRM TO TRUE
@@ -87,7 +84,7 @@
             DISPLAY "Matéria:       " WS-MATERIA
             DISPLAY "Média:         " WS-MEDIA
             DISPLAY "Status:        " WS-STATUS
-            DISPLAY " "
+            DISPLAY "**************************************************"
 
             DISPLAY " "
             DISPLAY "GOSTARIA DE CONTINUAR? (Y/N)"
