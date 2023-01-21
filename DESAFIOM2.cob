@@ -90,7 +90,6 @@
             DISPLAY "GOSTARIA DE CONTINUAR? (Y/N)"
             ACCEPT WS-SIGNAL.
             
-
        P150-ERRO.
             DISPLAY "**************************************************"
             DISPLAY "*      NOTAS INVALIDAS - TENTE NOVAMENTE         *"
